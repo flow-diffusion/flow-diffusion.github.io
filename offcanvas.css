@@ -129,3 +129,48 @@ h2 {
 .vspace-top {
     margin-top: 30px;
 }
+
+.wrapper {
+    width: 100%;
+    text-align: center;
+    background-color: #646675
+}
+
+.carousel1 {
+    width: 100%;
+    margin: 0px auto;
+}
+
+.carousel3 {
+    width: 100%;
+    margin: 0px auto;
+}
+
+.slick-slide {
+    margin: 20px;
+}
+
+.slick-slide img {
+    width: 100%;
+    border: 2px solid #fff;
+}
+
+.left {
+    float: left;
+    width: 50%;
+    background-color: rgb(195, 248, 216);
+    border-right: 10px solid #00000000;
+    border-left: 10px solid #00000000;
+}
+
+.right {
+    float: right;
+    width: 50%;
+    background-color: rgb(249, 199, 199);
+    border-left: 10px solid #00000000;
+    border-right: 10px solid #00000000;
+}
+
+.bottom {
+    clear: both;
+}
