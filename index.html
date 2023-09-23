@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet " type="text/css " href="slick/slick.css" />
     <link rel="stylesheet " type="text/css " href="slick/slick-theme.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Custom styles for this template -->
     <link href="offcanvas.css" rel="stylesheet">
@@ -22,32 +23,33 @@
 <body>
     <div class="jumbotron jumbotron-fluid">
         <div class="container"></div>
-        <h2>Learning to Act from Actionless Video<br> through Dense Correspondences</h2>
-        <p><br /></p>
+        <h1>Learning to Act from Actionless Video<br> through Dense Correspondences</h1>
         <div class="authors">
-            <div><a href=https://pochen-ko.github.io>Po-Chen Ko</a><sup>1</sup></div>
-            <div><a href=https://jiayuanm.com>Jiayuan Mao</a><sup>2</sup></div>
-            <div><a href=https://yilundu.github.io>Yilun Du</a><sup>2</sup></div>
-            <div><a href=https://shaohua0116.github.io>Shao-Hua Sun</a><sup>1</sup></div>
-            <div><a href=https://cocosci.mit.edu/josh>Joshua B. Tenenbaum</a><sup>2</sup></div>
+            <div><a href=https://pochen-ko.github.io>Po-Chen Ko</a></div>
+            <div><a href=https://jiayuanm.com>Jiayuan Mao</a></div>
+            <div><a href=https://yilundu.github.io>Yilun Du</a></div>
+            <div><a href=https://shaohua0116.github.io>Shao-Hua Sun</a></div>
+            <div><a href=https://cocosci.mit.edu/josh>Joshua B. Tenenbaum</a></div>
         </div>
-        <div class="faculty">
+        <br />
+        <!-- <div class="faculty">
             <div><sup>1</sup> National Taiwan University</div>
             <div><sup>2</sup> MIT</div>
+        </div> -->
+        <div class="schoollogo">
+            <div><img src="img/ntu.png" height="150px"></div>
+            <div><img src="img/mit.png" height="150px"></div>
         </div>
     </div>
 
+    <div class="btn-container">
+        <span class="button-34"><i class="fa fa-file-pdf-o"></i> Paper</span>
+        <span class="button-34"><iconify-icon icon="simple-icons:arxiv"></iconify-icon> arXiv</span>
+        <span class="button-34"><i class="fa fa-file-code-o"></i> Code</span>
+    </div>
+
     <div class="container ">
-        <div class="section ">
-            <!-- <div class="row-align-items-center ">
-                <div class="col justify-content-center text-center ">
-                    <div class="overlay ">
-                        <p>
-                            <a href="flow_diffusion_iclr2024.pdf ">paper</a>
-                        </p>
-                    </div>
-                </div>
-            </div> -->
+        <!-- <div class="section ">
             <p>
                 In this work, we present an approach to construct a video-based robot policy capable of successfully executing diverse tasks across different robots and environments without the need of any action annotations. Our method leverages images as a task-agnostic
                 representation, encoding both the state and action information. By synthesizing videos that "hallucinate " robot executing actions and in combination with dense correspondences between frames, our approach can infer the closed-formed action
@@ -57,38 +59,28 @@
             </p>
 
             <p><br /></p>
-        </div>
+        </div> -->
 
-        <div class="section ">
+        <!-- <div class="section ">
             <h2>Table of contents</h2>
             <hr>
             <ul>
                 <li><a href="#framework">Framework Overview</a></li>
-                <li><a href="#vidgenresults">Extended Qualitative Results</a>
-                    <ul>
-                        <li><a href="#mwresults">Meta-World</a></li>
-                        <li><a href="#ithorresults">iTHOR</a></li>
-                        <li><a href="#realresults">Real-World Franka Emika Panda Arm with Bridge Dataset</a></li>
-                        <li><a href="#oodresults">Cross-Embodiment Learning (Visual Pusher)</a></li>
-                    </ul>
-                </li>
+                <li><a href="#mwresults">Meta-World</a></li>
+                <li><a href="#ithorresults">iTHOR</a></li>
+                <li><a href="#oodresults">Cross-Embodiment Learning (Visual Pusher)</a></li>
+                <li><a href="#realresults">Real-World Franka Emika Panda Arm with Bridge Dataset</a></li>
                 <li><a href="#bridge0shot">Zero-Shot Generalization on Real-World Scene with Bridge Model</a></li>
                 <li><a href="#vidgencomparison">Comparison of First-Frame Conditioning Strategy and Different Text Encoders</a></li>
                 <li><a href="#DDIMresults">Improving Inference Efficiency with Denoising Diffusion Implicit Models</a></li>
             </ul>
             <p><br /></p>
-        </div>
+        </div> -->
 
 
         <div class="section" id="framework">
             <h2>Framework Overview</h2>
             <hr>
-            <ul>
-                <li>(a) Our model takes the RGBD observation of the current environmental state and a textual goal description as its input.</li>
-                <li>(b) It first synthesizes a video of imagined execution of the task using a diffusion model.</li>
-                <li>(c) Next, it estimates the optical flow between adjacent frames in the video.</li>
-                <li>(d) Finally, it leverages the optical flow as dense correspondences between frames and the depth of the first frame to compute SE(3) transformations of the target object, and subsequently, robot arm commands.</li>
-            </ul>
             <!-- <p>
                 For more details, please refer to our <a href="flow_diffusion_iclr2024.pdf ">paper</a>.
             </p> -->
@@ -99,19 +91,24 @@
                 <img src="img/framework.png " width="100% ">
             </div>
             <p><br /></p>
+            <ul>
+                <li>(a) Our model takes the RGBD observation of the current environmental state and a textual goal description as its input.</li>
+                <li>(b) It first synthesizes a video of imagined execution of the task using a diffusion model.</li>
+                <li>(c) Next, it estimates the optical flow between adjacent frames in the video.</li>
+                <li>(d) Finally, it leverages the optical flow as dense correspondences between frames and the depth of the first frame to compute SE(3) transformations of the target object, and subsequently, robot arm commands.</li>
+            </ul>
+            <p><br /></p>
         </div>
 
         <div class="section ">
-            <a id="vidgenresults"></a>
-            <h2>Extended Qualitative Results</h2>
-            <hr>
             <a id="mwresults"></a>
             <div class="text-center ">
-                <h3>Meta-World</h3>
+                <h2>Meta-World</h2>
             </div>
-            <hr width="75%">
+            <hr>
             <p>
-                Meta-World (<a href="https://arxiv.org/abs/1910.10897">Yu et al., 2019</a>) is a simulated benchmark featuring various manipulation tasks with a Sawyer robot arm. We present the video plans synthesized by our video diffusion model as well as robot execution videos as follows.
+                Meta-World (<a href="https://arxiv.org/abs/1910.10897">Yu et al., 2019</a>) is a simulated benchmark featuring various manipulation tasks with a Sawyer robot arm. We present the video plans synthesized by our video diffusion model as well
+                as robot execution videos as follows.
             </p>
             <div class="text-center ">
                 <h4>Synthesized Videos</h4>
@@ -170,9 +167,6 @@
                         <div class="text "><b>Task: </b>Door Open</div>
                     </div>
                 </div>
-                <!-- </div>
-            <p><br /></p>
-            <div class="row align-items-center "> -->
                 <div class="col justify-content-center text-center ">
                     <video width="100% " playsinline=" " autoplay=" " loop=" " preload=" " muted=" ">
                         <source src="img/MW/hammer/executed_video.mp4 " type="video/mp4 ">
@@ -191,15 +185,17 @@
                 </div>
             </div>
             <p><br /></p>
+        </div>
 
-
+        <div class="section ">
             <a id="ithorresults"></a>
             <div class="text-center ">
-                <h3>iTHOR</h3>
+                <h2>iTHOR</h2>
             </div>
             <hr width="75%">
             <p>
-                iTHOR (<a href="https://arxiv.org/abs/1712.05474">Kolve et al., 2017</a>) is a simulated benchmark for embodied common sense reasoning. We consider the object navigation tasks for evaluation, where an agent randomly initialized into a scene learns to navigate to an object of a given type (e.g., toaster, television). We present the video plans synthesized by our video diffusion model as well as robot navigation videos as follows.
+                iTHOR (<a href="https://arxiv.org/abs/1712.05474">Kolve et al., 2017</a>) is a simulated benchmark for embodied common sense reasoning. We consider the object navigation tasks for evaluation, where an agent randomly initialized into a
+                scene learns to navigate to an object of a given type (e.g., toaster, television). We present the video plans synthesized by our video diffusion model as well as robot navigation videos as follows.
             </p>
             <div class="text-center ">
                 <h4>Synthesized Videos</h4>
@@ -261,9 +257,6 @@
                         <div class="text "><b>Task: </b>Soap Bar</div>
                     </div>
                 </div>
-                <!-- </div>
-            <p><br /></p>
-            <div class="row align-items-center "> -->
                 <div class="col justify-content-center text-center ">
                     <video width="100% " playsinline=" " autoplay=" " loop=" " preload=" " muted=" ">
                         <source src="img/iTHOR/Television/execution_results/video.mp4 " type="video/mp4 ">
@@ -282,14 +275,18 @@
                 </div>
             </div>
             <p><br /></p>
+        </div>
 
+        <div class="section ">
             <a id="oodresults"></a>
             <div class="text-center ">
-                <h3>Cross-Embodiment Learning (Visual Pusher)</h3>
+                <h2>Cross-Embodiment Learning (Visual Pusher)</h2>
             </div>
             <hr width="75%">
             <p>
-                We aim to examine if our method can achieve cross-embodiment learning, e.g., leverage <i>human</i> demonstration videos to control <i>robots</i> to solve tasks. To this end, we learn a video diffusion model from only actionless human pushing videos from Visual Pusher (<a href="https://arxiv.org/abs/2011.06507">Schmeckpeper et al., 2021</a>, <a href="https://arxiv.org/abs/2106.03911">Zakka et al., 2022</a>) and then evaluate our method on simulated robot pushing tasks without any fine-tuning. We present the video plans synthesized by our video diffusion model as well as robot execution videos as follows.
+                We aim to examine if our method can achieve cross-embodiment learning, e.g., leverage <i>human</i> demonstration videos to control <i>robots</i> to solve tasks. To this end, we learn a video diffusion model from only actionless human pushing
+                videos from Visual Pusher (<a href="https://arxiv.org/abs/2011.06507">Schmeckpeper et al., 2021</a>, <a href="https://arxiv.org/abs/2106.03911">Zakka et al., 2022</a>) and then evaluate our method on simulated robot pushing tasks without
+                any fine-tuning. We present the video plans synthesized by our video diffusion model as well as robot execution videos as follows.
             </p>
             <div class="container">
                 <div class="right">
@@ -392,14 +389,17 @@
                     <p><br /></p>
                 </div>
             </div>
+        </div>
 
+        <div class="section ">
             <a id="realresults"></a>
             <div class="text-center ">
-                <h3>Real-World Franka Emika Panda Arm with Bridge Dataset</h3>
+                <h2>Real-World Franka Emika Panda Arm with Bridge Dataset</h2>
             </div>
             <hr width="75%">
             <p>
-                We aim to examine if our method can tackle real-world robotics tasks. To this end, To this end, we train our video generation model on the Bridge dataset (<a href="https://arxiv.org/abs/2109.13396">Ebert et al., 2022</a>), and perform evaluation on a real-world Franka Emika Panda tabletop manipulation environment. We present the video plans synthesized by our video diffusion model as well as robot execution videos as follows.
+                We aim to examine if our method can tackle real-world robotics tasks. To this end, To this end, we train our video generation model on the Bridge dataset (<a href="https://arxiv.org/abs/2109.13396">Ebert et al., 2022</a>), and perform
+                evaluation on a real-world Franka Emika Panda tabletop manipulation environment. We present the video plans synthesized by our video diffusion model as well as robot execution videos as follows.
             </p>
             <div class="text-center ">
                 <h4>Synthesized Videos</h4>
@@ -451,9 +451,6 @@
                         <div class="text "><b>Task: </b>put apple in plate</div>
                     </div>
                 </div>
-                <!-- </div>
-            <p><br /></p>
-            <div class="row align-items-center "> -->
                 <div class="col justify-content-center text-center ">
                     <video width="100% " playsinline=" " autoplay=" " loop=" " preload=" " muted=" ">
                         <source src="img/Real/put_banana_in_plate.mp4 " type="video/mp4 ">
@@ -462,9 +459,6 @@
                         <div class="text "><b>Task: </b>put banana in plate</div>
                     </div>
                 </div>
-                <!-- </div>
-            <p><br /></p>
-            <div class="row align-items-center "> -->
                 <div class="col justify-content-center text-center ">
                     <video width="100% " playsinline=" " autoplay=" " loop=" " preload=" " muted=" ">
                         <source src="img/Real/put_peach_in_bowl.mp4 " type="video/mp4 ">
@@ -475,252 +469,15 @@
                 </div>
             </div>
             <p><br /></p>
-
-
         </div>
-
-        <!-- <div class="section">
-            <a id="mwresults"></a>
-            <h2>Meta-World Results</h2>
-            <hr>
-            <p>
-                Below, we provide some examples of executions of our Meta-World experiments. The agent is required to execute a variety of manipulation tasks.
-            </p>
-            <div class="row align-items-center ">
-                <div class="col justify-content-center text-center ">
-                    <video width="100% " playsinline=" " autoplay=" " loop=" " preload=" " muted=" ">
-                        <source src="img/MW/assembly/executed_video.mp4 " type="video/mp4 ">
-                    </video>
-                    <div class="overlay ">
-                        <div class="text "><b>Task: </b>Assembly</div>
-                    </div>
-                </div>
-                <div class="col justify-content-center text-center ">
-                    <video width="100% " playsinline=" " autoplay=" " loop=" " preload=" " muted=" ">
-                        <source src="img/MW/door-open/executed_video.mp4 " type="video/mp4 ">
-                    </video>
-                    <div class="overlay ">
-                        <div class="text "><b>Task: </b>Door Open</div>
-                    </div>
-                </div>
-                <div class="col justify-content-center text-center ">
-                    <video width="100% " playsinline=" " autoplay=" " loop=" " preload=" " muted=" ">
-                        <source src="img/MW/hammer/executed_video.mp4 " type="video/mp4 ">
-                    </video>
-                    <div class="overlay ">
-                        <div class="text "><b>Task: </b>Hammer</div>
-                    </div>
-                </div>
-                <div class="col justify-content-center text-center ">
-                    <video width="100% " playsinline=" " autoplay=" " loop=" " preload=" " muted=" ">
-                        <source src="img/MW/shelf-place/executed_video.mp4 " type="video/mp4 ">
-                    </video>
-                    <div class="overlay ">
-                        <div class="text "><b>Task: </b>Shelf Place</div>
-                    </div>
-                </div>
-            </div>
-            <p><br /></p>
-        </div> -->
-
-        <!-- <div class="section">
-            <a id="ithorresults"></a>
-            <h2>iTHOR Results</h2>
-            <hr>
-            <p>
-                Below, we provide some examples of executions of our iTHOR experiments. The agent is required to find and move to a specific target object in the scene.
-            </p>
-            <div class="row align-items-center ">
-                <div class="col justify-content-center text-center ">
-                    <video width="100% " playsinline=" " autoplay=" " loop=" " preload=" " muted=" ">
-                        <source src="img/iTHOR/Pillow/execution_results/video.mp4 " type="video/mp4 ">
-                    </video>
-                    <div class="overlay ">
-                        <div class="text "><b>Task: </b>Pillow</div>
-                    </div>
-                </div>
-                <div class="col justify-content-center text-center ">
-                    <video width="100% " playsinline=" " autoplay=" " loop=" " preload=" " muted=" ">
-                        <source src="img/iTHOR/SoapBar/execution_results/video.mp4 " type="video/mp4 ">
-                    </video>
-                    <div class="overlay ">
-                        <div class="text "><b>Task: </b>Soap Bar</div>
-                    </div>
-                </div>
-                <div class="col justify-content-center text-center ">
-                    <video width="100% " playsinline=" " autoplay=" " loop=" " preload=" " muted=" ">
-                        <source src="img/iTHOR/Television/execution_results/video.mp4 " type="video/mp4 ">
-                    </video>
-                    <div class="overlay ">
-                        <div class="text "><b>Task: </b>Television</div>
-                    </div>
-                </div>
-                <div class="col justify-content-center text-center ">
-                    <video width="100% " playsinline=" " autoplay=" " loop=" " preload=" " muted=" ">
-                        <source src="img/iTHOR/Toaster/execution_results/video.mp4 " type="video/mp4 ">
-                    </video>
-                    <div class="overlay ">
-                        <div class="text "><b>Task: </b>Toaster</div>
-                    </div>
-                </div>
-            </div>
-            <p><br /></p>
-        </div> -->
-
-        <!-- <div class="section ">
-            <a id="realresults"></a>
-            <h2>Real-World Results</h2>
-            <hr>
-            <p>
-                Below, we provide some examples of executions of our real-world experiments. The agent is required to execute pick-and-place task on different objects and targets.
-            </p>
-            <div class="row align-items-center ">
-                <div class="col justify-content-center text-center ">
-                    <video width="100% " playsinline=" " autoplay=" " loop=" " preload=" " muted=" ">
-                        <source src="img/Real/put_apple_in_plate.mp4 " type="video/mp4 ">
-                    </video>
-                    <div class="overlay ">
-                        <div class="text "><b>Task: </b>put apple in plate</div>
-                    </div>
-                </div>
-                <div class="col justify-content-center text-center ">
-                    <video width="100% " playsinline=" " autoplay=" " loop=" " preload=" " muted=" ">
-                        <source src="img/Real/put_banana_in_plate.mp4 " type="video/mp4 ">
-                    </video>
-                    <div class="overlay ">
-                        <div class="text "><b>Task: </b>put banana in plate</div>
-                    </div>
-                </div>
-                <div class="col justify-content-center text-center ">
-                    <video width="100% " playsinline=" " autoplay=" " loop=" " preload=" " muted=" ">
-                        <source src="img/Real/put_peach_in_bowl.mp4 " type="video/mp4 ">
-                    </video>
-                    <div class="overlay ">
-                        <div class="text "><b>Task: </b>put peach in blue bowl</div>
-                    </div>
-                </div>
-            </div>
-            <p><br /></p>
-        </div> -->
-
-        <!-- <div class="section ">
-            <a id="oodresults"></a>
-            <h2>Cross-Embodiment Learning from Human Videos</h2>
-            <hr>
-            <p>
-                Below, we provide some examples of executions of our OOD experiments. The agent is trained on human pushing video and tested in simulation.
-            </p>
-
-            <div class="container">
-                <div class="right">
-                    <div class="text-center">
-                        <h3>Failed executions</h3>
-                        <p><br /></p>
-                    </div>
-                    <div class="row">
-                        <div class="col justify-content-center text-center ">
-                            <img src="img/OOD/failed/input.png " width="100% ">
-                            <div class="overlay ">
-                                <div class="text ">input image</div>
-                            </div>
-                        </div>
-                        <div class="col justify-content-center text-center ">
-                            <img src="img/OOD/failed/plan.gif " width="100% ">
-                            <div class="overlay ">
-                                <div class="text ">video plan</div>
-                            </div>
-                        </div>
-                        <div class="col justify-content-center text-center ">
-                            <img src="img/OOD/failed/execution.gif " width="100% ">
-                            <div class="overlay ">
-                                <div class="text ">execution</div>
-                            </div>
-                        </div>
-                    </div>
-                    <p><br /></p>
-                    <div class="row">
-                        <div class="col justify-content-center text-center ">
-                            <img src="img/OOD/failed2/input.png " width="100% ">
-                            <div class="overlay ">
-                                <div class="text ">input image</div>
-                            </div>
-                        </div>
-                        <div class="col justify-content-center text-center ">
-                            <img src="img/OOD/failed2/plan.gif " width="100% ">
-                            <div class="overlay ">
-                                <div class="text ">video plan</div>
-                            </div>
-                        </div>
-                        <div class="col justify-content-center text-center ">
-                            <img src="img/OOD/failed2/execution.gif " width="100% ">
-                            <div class="overlay ">
-                                <div class="text ">execution</div>
-                            </div>
-                        </div>
-                    </div>
-                    <p><br /></p>
-                </div>
-                <div class="left">
-                    <div class="text-center">
-                        <h3>Successful executions</h3>
-                        <p><br /></p>
-                    </div>
-                    <div class="row">
-                        <div class="col justify-content-center text-center ">
-                            <img src="img/OOD/success/input.png " width="100% ">
-                            <div class="overlay ">
-                                <div class="text ">input image</div>
-                            </div>
-                        </div>
-                        <div class="col justify-content-center text-center ">
-                            <img src="img/OOD/success/plan.gif " width="100% ">
-                            <div class="overlay ">
-                                <div class="text ">video plan</div>
-                            </div>
-                        </div>
-                        <div class="col justify-content-center text-center ">
-                            <img src="img/OOD/success/execution.gif " width="100% ">
-                            <div class="overlay ">
-                                <div class="text ">execution</div>
-                            </div>
-                        </div>
-                    </div>
-                    <p><br /></p>
-                    <div class="row">
-                        <div class="col justify-content-center text-center ">
-                            <img src="img/OOD/success2/input.png " width="100% ">
-                            <div class="overlay ">
-                                <div class="text ">input image</div>
-                            </div>
-                        </div>
-                        <div class="col justify-content-center text-center ">
-                            <img src="img/OOD/success2/plan.gif " width="100% ">
-                            <div class="overlay ">
-                                <div class="text ">video plan</div>
-                            </div>
-                        </div>
-                        <div class="col justify-content-center text-center ">
-                            <img src="img/OOD/success2/execution.gif " width="100% ">
-                            <div class="overlay ">
-                                <div class="text ">execution</div>
-                            </div>
-                        </div>
-                    </div>
-                    <p><br /></p>
-                </div>
-                <div class="bottom">
-                    <p><br /></p>
-                </div>
-            </div>
-
-        </div> -->
 
         <div class="section ">
             <a id="bridge0shot"></a>
             <h2>Zero-Shot Generalization on Real-World Scene with Bridge Model</h2>
             <hr>
             <p>
-                While most tasks in the Bridge data were recorded in toy kitchens, we found that the video diffusion model trained on this dataset already can generalize to complex real-world kitchen scenarios, producing reasonable videos given RGB images and textual task descriptions. We present some examples of the synthesized videos below. Note that the videos are blurry since the original video resolution is low (48x64).
+                While most tasks in the Bridge data were recorded in toy kitchens, we found that the video diffusion model trained on this dataset already can generalize to complex real-world kitchen scenarios, producing reasonable videos given RGB images and textual
+                task descriptions. We present some examples of the synthesized videos below. Note that the videos are blurry since the original video resolution is low (48x64).
             </p>
             <div class="row align-items-center ">
                 <div class="col justify-content-center text-center ">
@@ -784,19 +541,15 @@
             <p><br /></p>
         </div>
 
-        <div class="section ">
-            <a id="vidgencomparison"></a>
-            <h2>Ablation Study: Comparison of First-Frame Conditioning Strategy</h2>
+        <div class="section">
+            <h2>Extended Analysis and Ablation Studies</h2>
             <hr>
-            <!-- <p>
-                In this section, we provide a line chart to compare the performance of different text encoders and first frame conditioning strategy. <b>cat_c</b>: first frame is concatenated with noisy video in RGB dimension (Ours). <b>cat_t</b>: first
-                frame is concatenated with noisy video in time dimension. <b>CLIP</b>: CLIP text encoder (63M). <b>T5</b>: T5 base encoder (110M).
-            </p>
-            <div class="row align-items-center ">
-                <img src="img/mse_plot_final.png " width="100% ">
-            </div> -->
+
+            <a id="vidgencomparison"></a>
+            <h4>Comparison of First-Frame Conditioning Strategy</h4>
             <p>
-                We compare our proposed first-frame conditioning strategy (cat_c) with the naive frame-wise concatenate strategy (cat_t). Our method (cat_c) consistently outperforms the frame-wise concatenating baseline (cat_t) when training on the Bridge dataset. Below we provide some qualitative examples of synthesized videos with 40k training steps.
+                We compare our proposed first-frame conditioning strategy (cat_c) with the naive frame-wise concatenate strategy (cat_t). Our method (cat_c) consistently outperforms the frame-wise concatenating baseline (cat_t) when training on the Bridge dataset. Below
+                we provide some qualitative examples of synthesized videos with 40k training steps.
             </p>
 
             <div class="container">
@@ -816,22 +569,21 @@
                 </div>
             </div>
             <p><br /></p>
-        </div>
 
-        <div class="section ">
             <a id="DDIMresults"></a>
-            <h2>Improving Inference Efficiency with<br>Denoising Diffusion Implicit Models</h2>
+            <h4>Improving Inference Efficiency with<br>Denoising Diffusion Implicit Models</h4>
             <hr>
             <p>
-            This section investigates the possibility of accelerating the sampling process using Denoising Diffusion Implicit Models (DDIM; <a href="https://arxiv.org/abs/2010.02502">Song et al., 2021</a>). To this end, instead of iterative denoising 100 steps, as reported in the main paper, we have experimented with different numbers of denoising steps (e.g., 25, 10, 5, 3) using DDIM. We found that we can generate high-fidelity videos with only 1/10 of the samplimg steps (10 steps) with DDIM, allowing for tackling running time-critical tasks. We present the synthesized videos with 25, 10, 5, 3 denoising steps as follows.
+                This section investigates the possibility of accelerating the sampling process using Denoising Diffusion Implicit Models (DDIM; <a href="https://arxiv.org/abs/2010.02502">Song et al., 2021</a>). To this end, instead of iterative denoising
+                100 steps, as reported in the main paper, we have experimented with different numbers of denoising steps (e.g., 25, 10, 5, 3) using DDIM. We found that we can generate high-fidelity videos with only 1/10 of the samplimg steps (10 steps)
+                with DDIM, allowing for tackling running time-critical tasks. We present the synthesized videos with 25, 10, 5, 3 denoising steps as follows.
             </p>
             <p>
 
             </p>
             <div class="overlay ">
-                <div class="text "><b>DDIM 25 steps: </b>
-                    The quality of the synthesized videos are satisfactory depsite minor temporal inconsistency (gripper/object disappeared/duplicated) compared to our DDPM (100 steps) videos reported in previous section. 
-            </div>
+                <div class="text "><b>DDIM 25 steps: </b> The quality of the synthesized videos are satisfactory depsite minor temporal inconsistency (gripper/object disappeared/duplicated) compared to our DDPM (100 steps) videos reported in previous section.
+                </div>
             </div>
             <div class="container">
                 <div class="carousel4">
@@ -868,8 +620,7 @@
             </div>
             <p><br /></p>
             <div class="overlay ">
-                <div class="text "><b>DDIM 10 steps: </b>
-                    The quality of the synthesized videos is similar to those generated with 25 steps.
+                <div class="text "><b>DDIM 10 steps: </b> The quality of the synthesized videos is similar to those generated with 25 steps.
                 </div>
             </div>
             <div class="container">
@@ -907,8 +658,7 @@
             </div>
             <p><br /></p>
             <div class="overlay ">
-                <div class="text "><b>DDIM 5 steps: </b> 
-                    The temporal inconsistency issue is more severe with only 5 denoising steps.
+                <div class="text "><b>DDIM 5 steps: </b> The temporal inconsistency issue is more severe with only 5 denoising steps.
                 </div>
             </div>
             <div class="container">
@@ -946,8 +696,7 @@
             </div>
             <p><br /></p>
             <div class="overlay ">
-                <div class="text "><b>DDIM 3 steps: </b> 
-                    The temporal inconsistency issue is more severe and some objects are blurry.
+                <div class="text "><b>DDIM 3 steps: </b> The temporal inconsistency issue is more severe and some objects are blurry.
                 </div>
             </div>
             <div class="container">
@@ -994,6 +743,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <script type="text/javascript">
         $('.carousel1').slick({
             slidesToShow: 1,

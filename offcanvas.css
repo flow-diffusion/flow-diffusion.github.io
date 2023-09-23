@@ -16,7 +16,7 @@ footer {
 }
 
 .authors {
-    font-size: 20px;
+    font-size: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,10 +31,30 @@ footer {
     column-gap: 20px;
 }
 
+.schoollogo {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 20px;
+}
+
 
 /*.container {
   max-width: 768px;
 }*/
+
+.btn-container {
+    display: block;
+    text-align: center;
+    align-content: center;
+    display: block;
+    position: relative;
+    left: 50%;
+    top: -32px;
+    word-spacing: 10px;
+    transform: translateY(-50%) translateX(-50%);
+}
 
 .container {
     max-width: 1000px;
@@ -50,7 +70,20 @@ li {
     font-size: 16px;
 }
 
+h1 {
+    text-align: center;
+    align: center;
+    padding-bottom: 5px;
+}
+
 h2 {
+    text-align: center;
+    align: center;
+    padding-top: 20px;
+}
+
+h3,
+h4 {
     text-align: center;
     align: center;
 }
@@ -173,4 +206,27 @@ h2 {
 
 .bottom {
     clear: both;
+}
+
+
+/* CSS */
+
+.button-34 {
+    background: #555555;
+    border-radius: 999px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    opacity: 1;
+    outline: 0 solid transparent;
+    padding: 8px 18px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: fit-content;
+    word-break: break-word;
+    word-spacing: 5px;
 }
