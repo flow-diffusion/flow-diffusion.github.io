@@ -107,8 +107,7 @@
             </div>
             <hr>
             <p>
-                Meta-World (<a href="https://arxiv.org/abs/1910.10897">Yu et al., 2019</a>) is a simulated benchmark featuring various manipulation tasks with a Sawyer robot arm. We present the video plans synthesized by our video diffusion model as well
-                as robot execution videos as follows.
+                We train our video generation model on 165 videos of 11 tasks. We evaluate on robot manipulation tasks in Meta-World (<a href="https://arxiv.org/abs/1910.10897">Yu et al., 2019</a>) simulated benchmark.
             </p>
             <div class="text-center ">
                 <h4>Synthesized Videos</h4>
@@ -192,10 +191,9 @@
             <div class="text-center ">
                 <h2>iTHOR</h2>
             </div>
-            <hr width="75%">
+            <hr>
             <p>
-                iTHOR (<a href="https://arxiv.org/abs/1712.05474">Kolve et al., 2017</a>) is a simulated benchmark for embodied common sense reasoning. We consider the object navigation tasks for evaluation, where an agent randomly initialized into a
-                scene learns to navigate to an object of a given type (e.g., toaster, television). We present the video plans synthesized by our video diffusion model as well as robot navigation videos as follows.
+                We train our video generation model on 240 videos of 12 target objects. We evaluate on object navigation tasks in iTHOR (<a href="https://arxiv.org/abs/1712.05474">Kolve et al., 2017</a>) simulated benchmark.
             </p>
             <div class="text-center ">
                 <h4>Synthesized Videos</h4>
@@ -282,11 +280,10 @@
             <div class="text-center ">
                 <h2>Cross-Embodiment Learning (Visual Pusher)</h2>
             </div>
-            <hr width="75%">
+            <hr>
             <p>
-                We aim to examine if our method can achieve cross-embodiment learning, e.g., leverage <i>human</i> demonstration videos to control <i>robots</i> to solve tasks. To this end, we learn a video diffusion model from only actionless human pushing
-                videos from Visual Pusher (<a href="https://arxiv.org/abs/2011.06507">Schmeckpeper et al., 2021</a>, <a href="https://arxiv.org/abs/2106.03911">Zakka et al., 2022</a>) and then evaluate our method on simulated robot pushing tasks without
-                any fine-tuning. We present the video plans synthesized by our video diffusion model as well as robot execution videos as follows.
+                We train our video generation model on ~200 <i>human</i> pushing videos and evaluate in Visual Pusher (<a href="https://arxiv.org/abs/2011.06507">Schmeckpeper et al., 2021</a>, <a href="https://arxiv.org/abs/2106.03911">Zakka et al., 2022</a>)
+                <i>robot</i> environment.
             </p>
             <div class="container">
                 <div class="right">
@@ -396,10 +393,9 @@
             <div class="text-center ">
                 <h2>Real-World Franka Emika Panda Arm with Bridge Dataset</h2>
             </div>
-            <hr width="75%">
+            <hr>
             <p>
-                We aim to examine if our method can tackle real-world robotics tasks. To this end, To this end, we train our video generation model on the Bridge dataset (<a href="https://arxiv.org/abs/2109.13396">Ebert et al., 2022</a>), and perform
-                evaluation on a real-world Franka Emika Panda tabletop manipulation environment. We present the video plans synthesized by our video diffusion model as well as robot execution videos as follows.
+                We train our video generation model on the Bridge data (<a href="https://arxiv.org/abs/2109.13396">Ebert et al., 2022</a>), and perform evaluation on a real-world Franka Emika Panda tabletop manipulation environment.
             </p>
             <div class="text-center ">
                 <h4>Synthesized Videos</h4>
@@ -545,7 +541,7 @@
             <h2>Extended Analysis and Ablation Studies</h2>
             <hr>
 
-            <a id="vidgencomparison"></a>
+
             <h4>Comparison of First-Frame Conditioning Strategy</h4>
             <p>
                 We compare our proposed first-frame conditioning strategy (cat_c) with the naive frame-wise concatenate strategy (cat_t). Our method (cat_c) consistently outperforms the frame-wise concatenating baseline (cat_t) when training on the Bridge dataset. Below
