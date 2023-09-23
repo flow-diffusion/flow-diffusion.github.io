@@ -179,8 +179,12 @@ h4 {
     margin: 0px auto;
 }
 
+.imgrow {
+    margin: 10px;
+}
+
 .slick-slide {
-    margin: 20px;
+    margin: 12px;
 }
 
 .slick-slide img {
