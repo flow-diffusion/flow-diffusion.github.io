@@ -16,7 +16,7 @@ footer {
 }
 
 .authors {
-    font-size: 18px;
+    font-size: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,7 +32,7 @@ footer {
 }
 
 .schoollogo {
-    height: 100px;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
